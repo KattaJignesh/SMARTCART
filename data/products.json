@@ -1,0 +1,164 @@
+{
+  "products": [
+    {
+      "product_id": "P001",
+      "name": "Tata Salt",
+      "price": 28,
+      "expected_weight": 1000,
+      "category": "Groceries",
+      "aisle": "Aisle 1 - Section A"
+    },
+    {
+      "product_id": "P002",
+      "name": "Aashirvaad Atta (5kg)",
+      "price": 285,
+      "expected_weight": 5000,
+      "category": "Groceries",
+      "aisle": "Aisle 1 - Section B"
+    },
+    {
+      "product_id": "P003",
+      "name": "Fortune Sunflower Oil (1L)",
+      "price": 165,
+      "expected_weight": 920,
+      "category": "Groceries",
+      "aisle": "Aisle 2 - Section A"
+    },
+    {
+      "product_id": "P004",
+      "name": "Amul Butter (500g)",
+      "price": 285,
+      "expected_weight": 500,
+      "category": "Dairy",
+      "aisle": "Aisle 3 - Section A (Refrigerated)"
+    },
+    {
+      "product_id": "P005",
+      "name": "Mother Dairy Milk (1L)",
+      "price": 68,
+      "expected_weight": 1030,
+      "category": "Dairy",
+      "aisle": "Aisle 3 - Section B (Refrigerated)"
+    },
+    {
+      "product_id": "P006",
+      "name": "Britannia Good Day Biscuits",
+      "price": 45,
+      "expected_weight": 200,
+      "category": "Snacks",
+      "aisle": "Aisle 4 - Section A"
+    },
+    {
+      "product_id": "P007",
+      "name": "Lay's Classic Chips",
+      "price": 40,
+      "expected_weight": 95,
+      "category": "Snacks",
+      "aisle": "Aisle 4 - Section B"
+    },
+    {
+      "product_id": "P008",
+      "name": "Maggi Noodles (Pack of 4)",
+      "price": 56,
+      "expected_weight": 280,
+      "category": "Instant Food",
+      "aisle": "Aisle 5 - Section A"
+    },
+    {
+      "product_id": "P009",
+      "name": "Dettol Soap (125g)",
+      "price": 55,
+      "expected_weight": 125,
+      "category": "Personal Care",
+      "aisle": "Aisle 6 - Section A"
+    },
+    {
+      "product_id": "P010",
+      "name": "Colgate MaxFresh Toothpaste",
+      "price": 95,
+      "expected_weight": 150,
+      "category": "Personal Care",
+      "aisle": "Aisle 6 - Section B"
+    },
+    {
+      "product_id": "P011",
+      "name": "Surf Excel Detergent (1kg)",
+      "price": 225,
+      "expected_weight": 1000,
+      "category": "Household",
+      "aisle": "Aisle 7 - Section A"
+    },
+    {
+      "product_id": "P012",
+      "name": "Vim Dishwash Bar",
+      "price": 35,
+      "expected_weight": 300,
+      "category": "Household",
+      "aisle": "Aisle 7 - Section B"
+    },
+    {
+      "product_id": "P013",
+      "name": "Red Label Tea (500g)",
+      "price": 275,
+      "expected_weight": 500,
+      "category": "Beverages",
+      "aisle": "Aisle 8 - Section A"
+    },
+    {
+      "product_id": "P014",
+      "name": "Nescafe Classic Coffee (100g)",
+      "price": 345,
+      "expected_weight": 100,
+      "category": "Beverages",
+      "aisle": "Aisle 8 - Section B"
+    },
+    {
+      "product_id": "P015",
+      "name": "Basmati Rice (1kg)",
+      "price": 165,
+      "expected_weight": 1000,
+      "category": "Groceries",
+      "aisle": "Aisle 1 - Section C"
+    },
+    {
+      "product_id": "P016",
+      "name": "Toor Dal (1kg)",
+      "price": 180,
+      "expected_weight": 1000,
+      "category": "Groceries",
+      "aisle": "Aisle 1 - Section D"
+    },
+    {
+      "product_id": "P017",
+      "name": "Cadbury Dairy Milk (50g)",
+      "price": 50,
+      "expected_weight": 50,
+      "category": "Snacks",
+      "aisle": "Aisle 4 - Section C"
+    },
+    {
+      "product_id": "P018",
+      "name": "Parle-G Biscuits",
+      "price": 20,
+      "expected_weight": 250,
+      "category": "Snacks",
+      "aisle": "Aisle 4 - Section A"
+    },
+    {
+      "product_id": "P019",
+      "name": "Amul Cheese Slice (200g)",
+      "price": 125,
+      "expected_weight": 200,
+      "category": "Dairy",
+      "aisle": "Aisle 3 - Section C (Refrigerated)"
+    },
+    {
+      "product_id": "P020",
+      "name": "Tropicana Orange Juice (1L)",
+      "price": 110,
+      "expected_weight": 1050,
+      "category": "Beverages",
+      "aisle": "Aisle 8 - Section C"
+    }
+  ]
+}

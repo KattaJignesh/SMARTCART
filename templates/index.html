@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartKart - Smart Shopping Cart Software Prototype</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-success">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">
+                <i class="bi bi-cart4"></i> SmartKart
+            </span>
+            <span class="navbar-text text-white">
+                Smart Shopping Cart Software Prototype
+            </span>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <i class="bi bi-wallet2"></i> Budget Setup
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">₹</span>
+                            <input type="number" id="budgetInput" class="form-control" placeholder="Enter your budget" min="0">
+                            <button class="btn btn-primary" id="setBudgetBtn">Set Budget</button>
+                        </div>
+                        <div id="budgetDisplay" class="d-none">
+                            <div class="row text-center">
+                                <div class="col-4">
+                                    <small class="text-muted">Budget</small>
+                                    <h5 id="totalBudget">₹0</h5>
+                                </div>
+                                <div class="col-4">
+                                    <small class="text-muted">Spent</small>
+                                    <h5 id="totalSpent" class="text-danger">₹0</h5>
+                                </div>
+                                <div class="col-4">
+                                    <small class="text-muted">Remaining</small>
+                                    <h5 id="remainingBudget" class="text-success">₹0</h5>
+                                </div>
+                            </div>
+                            <div class="progress mt-2" style="height: 20px;">
+                                <div id="budgetProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                            </div>
+                            <div id="budgetAlert" class="mt-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-header bg-warning">
+                        <i class="bi bi-upc-scan"></i> Simulated Sensor Inputs
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small">
+                            <i class="bi bi-info-circle"></i> These inputs simulate hardware sensors (barcode scanner & load cell)
+                        </p>
+                        <div class="mb-3">
+                            <label for="productIdInput" class="form-label">Product ID (Barcode/RFID Scan)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-upc"></i></span>
+                                <input type="text" id="productIdInput" class="form-control" placeholder="e.g., P001">
+                                <button class="btn btn-outline-secondary" id="lookupProductBtn">Lookup</button>
+                            </div>
+                        </div>
+                        <div id="productPreview" class="alert alert-info d-none mb-3">
+                            <strong id="previewName">Product Name</strong><br>
+                            <small>Price: <span id="previewPrice">₹0</span> | Expected Weight: <span id="previewWeight">0g</span></small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="measuredWeightInput" class="form-label">Measured Weight (Load Cell Input)</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-speedometer2"></i></span>
+                                <input type="number" id="measuredWeightInput" class="form-control" placeholder="Weight in grams" min="0">
+                                <span class="input-group-text">grams</span>
+                            </div>
+                            <small class="text-muted">Weight tolerance: ±50 grams</small>
+                        </div>
+                        <button class="btn btn-success w-100" id="addToCartBtn">
+                            <i class="bi bi-cart-plus"></i> Add to Cart
+                        </button>
+                        <div id="scanResult" class="mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card mb-3 shadow-sm">
+                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-cart3"></i> Cart Items</span>
+                        <span class="badge bg-light text-dark" id="cartCount">0 items</span>
+                    </div>
+                    <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                        <div id="cartItems">
+                            <p class="text-muted text-center">Your cart is empty</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong>Total:</strong>
+                            <h4 class="mb-0 text-primary" id="cartTotal">₹0</h4>
+                        </div>
+                        <div class="mt-2 d-grid gap-2">
+                            <button class="btn btn-outline-danger btn-sm" id="clearCartBtn">
+                                <i class="bi bi-trash"></i> Clear Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <i class="bi bi-receipt"></i> Billing & Checkout
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-success w-100 btn-lg" id="checkoutBtn">
+                            <i class="bi bi-credit-card"></i> Proceed to Checkout
+                        </button>
+                        <div id="invoiceSection" class="d-none mt-3">
+                            <div class="card bg-light">
+                                <div class="card-body" id="invoiceContent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-secondary text-white">
+                        <i class="bi bi-geo-alt"></i> Product Navigation
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted small mb-2">
+                            <i class="bi bi-info-circle"></i> In real-world deployment, navigation may use BLE beacons or indoor positioning systems.
+                        </p>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input type="text" id="searchProducts" class="form-control" placeholder="Search products...">
+                        </div>
+                        <div class="mb-3">
+                            <select id="categoryFilter" class="form-select">
+                                <option value="">All Categories</option>
+                            </select>
+                        </div>
+                        <div id="productList" style="max-height: 400px; overflow-y: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="locationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                    <h5 class="modal-title"><i class="bi bi-geo-alt-fill"></i> Product Location</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h4 id="modalProductName">Product Name</h4>
+                    <hr>
+                    <div class="alert alert-info">
+                        <i class="bi bi-signpost-2 display-4"></i>
+                        <h3 id="modalAisle">Aisle Location</h3>
+                    </div>
+                    <p class="text-muted">
+                        <i class="bi bi-info-circle"></i> Navigate to this location in the store
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="addFromModalBtn">
+                        <i class="bi bi-cart-plus"></i> Add to Scan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-4 py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">SmartKart - Smart Shopping Cart Software Prototype | For Academic & Patent Review</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

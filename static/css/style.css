@@ -1,0 +1,169 @@
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+    font-weight: 600;
+}
+
+.product-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.product-item:hover {
+    background-color: #e9ecef;
+    border-left-color: #28a745;
+}
+
+.cart-item {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #dee2e6;
+    position: relative;
+}
+
+.cart-item:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cart-item .remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+}
+
+.budget-warning {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.alert-budget-warning {
+    background-color: #fff3cd;
+    border-color: #ffc107;
+    color: #856404;
+}
+
+.alert-budget-exceeded {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.invoice-header {
+    text-align: center;
+    border-bottom: 2px dashed #000;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.invoice-items {
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.invoice-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.category-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+}
+
+.progress {
+    border-radius: 10px;
+}
+
+.progress-bar {
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.nav-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.nav-indicator.groceries { background-color: #28a745; }
+.nav-indicator.dairy { background-color: #17a2b8; }
+.nav-indicator.snacks { background-color: #ffc107; }
+.nav-indicator.instant-food { background-color: #fd7e14; }
+.nav-indicator.personal-care { background-color: #e83e8c; }
+.nav-indicator.household { background-color: #6f42c1; }
+.nav-indicator.beverages { background-color: #20c997; }
+
+.weight-ok {
+    color: #28a745;
+}
+
+.weight-warning {
+    color: #ffc107;
+}
+
+.weight-error {
+    color: #dc3545;
+}
+
+#scanResult .alert {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+@media (max-width: 992px) {
+    .card {
+        margin-bottom: 15px;
+    }
+}
