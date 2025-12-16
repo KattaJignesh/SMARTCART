@@ -1,0 +1,82 @@
+Build a full-stack web application called “SmartKart – Smart Shopping Cart Software Prototype”.
+
+CONTEXT:
+This application is a SOFTWARE-ONLY prototype created to validate the logic of a Smart Shopping Cart system.
+Hardware components such as barcode scanners, RFID readers, load cells, and BLE beacons are NOT physically connected.
+Instead, their outputs are simulated through manual inputs to test the software layer independently.
+
+TECH STACK:
+- Backend: Python Flask
+- Frontend: HTML, CSS, JavaScript
+- Data storage: Local JSON file
+
+FUNCTIONAL REQUIREMENTS:
+
+1. Product Database
+- Create a local JSON database containing products with fields:
+  product_id, name, price, expected_weight (grams), category, aisle/location
+
+2. Sensor Input Simulation
+- Provide input fields for:
+  - Product ID (simulating barcode/RFID scan)
+  - Measured weight (simulating load cell input)
+- Clearly label these fields as “Simulated Sensor Inputs” in the UI.
+
+3. Weight Verification Logic
+- When a product is added:
+  - Compare measured_weight with expected_weight
+  - Accept item only if difference ≤ ±50 grams
+  - Reject item otherwise with an error message
+
+4. Cart Management
+- Maintain a cart list
+- Allow adding and removing items
+- Update total price in real time
+
+5. Budget Control
+- Allow user to set a shopping budget at the start
+- Display:
+  - Total spent
+  - Remaining budget
+- Show warning at 80% of budget
+- Show alert when budget is exceeded
+
+6. Navigation Assistance (SEPARATE SECTION)
+- Create a dedicated “Product Navigation” section
+- Display ALL available products (not only cart items)
+- Show product name, category, and aisle/location
+- Add:
+  - Search bar
+  - Category filter
+- Selecting a product should display its aisle/location
+- Mention that real-world deployment may use BLE beacons or indoor positioning
+
+7. Billing & Checkout
+- Generate a final digital bill listing:
+  - Items
+  - Individual prices
+  - Total amount
+- Simulate successful checkout (no payment gateway)
+- Display invoice on screen
+
+8. User Interface
+- Simple, clean dashboard layout
+- Sections:
+  - Budget Setup
+  - Simulated Item Scan
+  - Cart Items
+  - Product Navigation
+  - Billing Summary
+- Clear labels and alerts
+
+NON-FUNCTIONAL REQUIREMENTS:
+- All logic must run locally
+- No external APIs
+- Code should be readable and well-structured
+
+DELIVERABLE:
+- A runnable Flask application
+- Clear separation of logic and UI
+- Suitable for academic and patent review as a software implementation proof
+
+Generate complete backend and frontend code.
