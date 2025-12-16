@@ -63,31 +63,56 @@ def add_to_cart():
     if not product:
         return jsonify({'success': False, 'error': 'Product not found'}), 404
     
-    expected_weight = product['expected_weight']
-    weight_difference = abs(measured_weight - expected_weight)
+    is_variable_weight = product.get('variable_weight', False)
     
-    if weight_difference > WEIGHT_TOLERANCE:
-        return jsonify({
-            'success': False,
-            'error': f'Weight mismatch! Expected: {expected_weight}g, Measured: {measured_weight}g. Difference ({weight_difference}g) exceeds tolerance of ±{WEIGHT_TOLERANCE}g.',
-            'expected_weight': expected_weight,
+    if is_variable_weight:
+        if measured_weight <= 0:
+            return jsonify({
+                'success': False,
+                'error': 'Please enter a valid weight for this item.'
+            }), 400
+        
+        price_per_kg = product.get('price_per_kg', 0)
+        calculated_price = round((measured_weight / 1000) * price_per_kg, 2)
+        
+        cart_item = {
+            'product_id': product['product_id'],
+            'name': product['name'],
+            'price': calculated_price,
+            'price_per_kg': price_per_kg,
             'measured_weight': measured_weight,
-            'difference': weight_difference
-        }), 400
+            'category': product['category'],
+            'aisle': product['aisle'],
+            'variable_weight': True,
+            'added_at': datetime.now().isoformat()
+        }
+    else:
+        expected_weight = product['expected_weight']
+        weight_difference = abs(measured_weight - expected_weight)
+        
+        if weight_difference > WEIGHT_TOLERANCE:
+            return jsonify({
+                'success': False,
+                'error': f'Weight mismatch! Expected: {expected_weight}g, Measured: {measured_weight}g. Difference ({weight_difference}g) exceeds tolerance of ±{WEIGHT_TOLERANCE}g.',
+                'expected_weight': expected_weight,
+                'measured_weight': measured_weight,
+                'difference': weight_difference
+            }), 400
+        
+        cart_item = {
+            'product_id': product['product_id'],
+            'name': product['name'],
+            'price': product['price'],
+            'expected_weight': product['expected_weight'],
+            'measured_weight': measured_weight,
+            'category': product['category'],
+            'aisle': product['aisle'],
+            'variable_weight': False,
+            'added_at': datetime.now().isoformat()
+        }
     
     if 'cart' not in session:
         session['cart'] = []
-    
-    cart_item = {
-        'product_id': product['product_id'],
-        'name': product['name'],
-        'price': product['price'],
-        'expected_weight': product['expected_weight'],
-        'measured_weight': measured_weight,
-        'category': product['category'],
-        'aisle': product['aisle'],
-        'added_at': datetime.now().isoformat()
-    }
     
     cart = session['cart']
     cart.append(cart_item)

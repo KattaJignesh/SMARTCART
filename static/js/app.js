@@ -63,24 +63,34 @@ function displayProducts(productsToDisplay) {
         return;
     }
     
-    container.innerHTML = productsToDisplay.map(product => `
-        <div class="product-item p-2 mb-2 border-bottom" onclick="showProductLocation('${product.product_id}')">
-            <div class="d-flex justify-content-between align-items-start">
-                <div>
-                    <strong>${product.name}</strong>
-                    <br>
-                    <small class="text-muted">ID: ${product.product_id}</small>
-                    <span class="badge bg-secondary category-badge ms-1">${product.category}</span>
+    container.innerHTML = productsToDisplay.map(product => {
+        const isVariable = product.variable_weight;
+        const priceDisplay = isVariable 
+            ? `₹${product.price_per_kg}/kg` 
+            : `₹${product.price}`;
+        const weightDisplay = isVariable 
+            ? '<span class="badge bg-success">Weighed Item</span>' 
+            : `${product.expected_weight}g`;
+        
+        return `
+            <div class="product-item p-2 mb-2 border-bottom" onclick="showProductLocation('${product.product_id}')">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <strong>${product.name}</strong>
+                        <br>
+                        <small class="text-muted">ID: ${product.product_id}</small>
+                        <span class="badge bg-secondary category-badge ms-1">${product.category}</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-primary fw-bold">${priceDisplay}</span>
+                        <br>
+                        <small class="text-muted">${weightDisplay}</small>
+                    </div>
                 </div>
-                <div class="text-end">
-                    <span class="text-primary fw-bold">₹${product.price}</span>
-                    <br>
-                    <small class="text-muted">${product.expected_weight}g</small>
-                </div>
+                <small class="text-success"><i class="bi bi-geo-alt"></i> ${product.aisle}</small>
             </div>
-            <small class="text-success"><i class="bi bi-geo-alt"></i> ${product.aisle}</small>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function filterProducts() {
@@ -117,7 +127,11 @@ function showProductLocation(productId) {
 function addFromModal() {
     if (currentProduct) {
         document.getElementById('productIdInput').value = currentProduct.product_id;
-        document.getElementById('measuredWeightInput').value = currentProduct.expected_weight;
+        if (!currentProduct.variable_weight && currentProduct.expected_weight) {
+            document.getElementById('measuredWeightInput').value = currentProduct.expected_weight;
+        } else {
+            document.getElementById('measuredWeightInput').value = '';
+        }
         lookupProduct();
         bootstrap.Modal.getInstance(document.getElementById('locationModal')).hide();
     }
@@ -194,8 +208,17 @@ async function lookupProduct() {
             const product = await response.json();
             document.getElementById('productPreview').classList.remove('d-none');
             document.getElementById('previewName').textContent = product.name;
-            document.getElementById('previewPrice').textContent = `₹${product.price}`;
-            document.getElementById('previewWeight').textContent = `${product.expected_weight}g`;
+            
+            if (product.variable_weight) {
+                document.getElementById('previewPrice').textContent = `₹${product.price_per_kg}/kg`;
+                document.getElementById('previewWeight').textContent = 'Variable (weigh item)';
+                document.getElementById('previewPrice').classList.add('text-success');
+            } else {
+                document.getElementById('previewPrice').textContent = `₹${product.price}`;
+                document.getElementById('previewWeight').textContent = `${product.expected_weight}g`;
+                document.getElementById('previewPrice').classList.remove('text-success');
+            }
+            
             currentProduct = product;
         } else {
             document.getElementById('productPreview').classList.add('d-none');
@@ -274,18 +297,25 @@ function displayCart(data) {
         return;
     }
     
-    container.innerHTML = data.cart.map((item, index) => `
-        <div class="cart-item">
-            <button class="btn btn-outline-danger btn-sm remove-btn" onclick="removeFromCart(${index})">
-                <i class="bi bi-x"></i>
-            </button>
-            <strong>${item.name}</strong>
-            <div class="d-flex justify-content-between mt-1">
-                <small class="text-muted">Weight: ${item.measured_weight}g</small>
-                <span class="text-primary">₹${item.price}</span>
+    container.innerHTML = data.cart.map((item, index) => {
+        const weightInfo = item.variable_weight 
+            ? `${item.measured_weight}g @ ₹${item.price_per_kg}/kg`
+            : `Weight: ${item.measured_weight}g`;
+        
+        return `
+            <div class="cart-item">
+                <button class="btn btn-outline-danger btn-sm remove-btn" onclick="removeFromCart(${index})">
+                    <i class="bi bi-x"></i>
+                </button>
+                <strong>${item.name}</strong>
+                ${item.variable_weight ? '<span class="badge bg-success ms-1" style="font-size: 0.6rem;">Weighed</span>' : ''}
+                <div class="d-flex justify-content-between mt-1">
+                    <small class="text-muted">${weightInfo}</small>
+                    <span class="text-primary">₹${item.price.toFixed(2)}</span>
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 async function removeFromCart(index) {
@@ -339,12 +369,17 @@ function displayInvoice(invoice) {
     const container = document.getElementById('invoiceSection');
     const content = document.getElementById('invoiceContent');
     
-    const itemsHtml = invoice.items.map(item => `
-        <div class="d-flex justify-content-between">
-            <span>${item.name}</span>
-            <span>₹${item.price}</span>
-        </div>
-    `).join('');
+    const itemsHtml = invoice.items.map(item => {
+        const details = item.variable_weight 
+            ? `<small class="text-muted">(${item.measured_weight}g @ ₹${item.price_per_kg}/kg)</small>`
+            : '';
+        return `
+            <div class="d-flex justify-content-between">
+                <span>${item.name} ${details}</span>
+                <span>₹${item.price.toFixed(2)}</span>
+            </div>
+        `;
+    }).join('');
     
     content.innerHTML = `
         <div class="invoice-header">

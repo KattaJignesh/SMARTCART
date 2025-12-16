@@ -6,7 +6,8 @@
       "price": 28,
       "expected_weight": 1000,
       "category": "Groceries",
-      "aisle": "Aisle 1 - Section A"
+      "aisle": "Aisle 1 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P002",
@@ -14,7 +15,8 @@
       "price": 285,
       "expected_weight": 5000,
       "category": "Groceries",
-      "aisle": "Aisle 1 - Section B"
+      "aisle": "Aisle 1 - Section B",
+      "variable_weight": false
     },
     {
       "product_id": "P003",
@@ -22,7 +24,8 @@
       "price": 165,
       "expected_weight": 920,
       "category": "Groceries",
-      "aisle": "Aisle 2 - Section A"
+      "aisle": "Aisle 2 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P004",
@@ -30,7 +33,8 @@
       "price": 285,
       "expected_weight": 500,
       "category": "Dairy",
-      "aisle": "Aisle 3 - Section A (Refrigerated)"
+      "aisle": "Aisle 3 - Section A (Refrigerated)",
+      "variable_weight": false
     },
     {
       "product_id": "P005",
@@ -38,7 +42,8 @@
       "price": 68,
       "expected_weight": 1030,
       "category": "Dairy",
-      "aisle": "Aisle 3 - Section B (Refrigerated)"
+      "aisle": "Aisle 3 - Section B (Refrigerated)",
+      "variable_weight": false
     },
     {
       "product_id": "P006",
@@ -46,7 +51,8 @@
       "price": 45,
       "expected_weight": 200,
       "category": "Snacks",
-      "aisle": "Aisle 4 - Section A"
+      "aisle": "Aisle 4 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P007",
@@ -54,7 +60,8 @@
       "price": 40,
       "expected_weight": 95,
       "category": "Snacks",
-      "aisle": "Aisle 4 - Section B"
+      "aisle": "Aisle 4 - Section B",
+      "variable_weight": false
     },
     {
       "product_id": "P008",
@@ -62,7 +69,8 @@
       "price": 56,
       "expected_weight": 280,
       "category": "Instant Food",
-      "aisle": "Aisle 5 - Section A"
+      "aisle": "Aisle 5 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P009",
@@ -70,7 +78,8 @@
       "price": 55,
       "expected_weight": 125,
       "category": "Personal Care",
-      "aisle": "Aisle 6 - Section A"
+      "aisle": "Aisle 6 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P010",
@@ -78,7 +87,8 @@
       "price": 95,
       "expected_weight": 150,
       "category": "Personal Care",
-      "aisle": "Aisle 6 - Section B"
+      "aisle": "Aisle 6 - Section B",
+      "variable_weight": false
     },
     {
       "product_id": "P011",
@@ -86,7 +96,8 @@
       "price": 225,
       "expected_weight": 1000,
       "category": "Household",
-      "aisle": "Aisle 7 - Section A"
+      "aisle": "Aisle 7 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P012",
@@ -94,7 +105,8 @@
       "price": 35,
       "expected_weight": 300,
       "category": "Household",
-      "aisle": "Aisle 7 - Section B"
+      "aisle": "Aisle 7 - Section B",
+      "variable_weight": false
     },
     {
       "product_id": "P013",
@@ -102,7 +114,8 @@
       "price": 275,
       "expected_weight": 500,
       "category": "Beverages",
-      "aisle": "Aisle 8 - Section A"
+      "aisle": "Aisle 8 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P014",
@@ -110,7 +123,8 @@
       "price": 345,
       "expected_weight": 100,
       "category": "Beverages",
-      "aisle": "Aisle 8 - Section B"
+      "aisle": "Aisle 8 - Section B",
+      "variable_weight": false
     },
     {
       "product_id": "P015",
@@ -118,7 +132,8 @@
       "price": 165,
       "expected_weight": 1000,
       "category": "Groceries",
-      "aisle": "Aisle 1 - Section C"
+      "aisle": "Aisle 1 - Section C",
+      "variable_weight": false
     },
     {
       "product_id": "P016",
@@ -126,7 +141,8 @@
       "price": 180,
       "expected_weight": 1000,
       "category": "Groceries",
-      "aisle": "Aisle 1 - Section D"
+      "aisle": "Aisle 1 - Section D",
+      "variable_weight": false
     },
     {
       "product_id": "P017",
@@ -134,7 +150,8 @@
       "price": 50,
       "expected_weight": 50,
       "category": "Snacks",
-      "aisle": "Aisle 4 - Section C"
+      "aisle": "Aisle 4 - Section C",
+      "variable_weight": false
     },
     {
       "product_id": "P018",
@@ -142,7 +159,8 @@
       "price": 20,
       "expected_weight": 250,
       "category": "Snacks",
-      "aisle": "Aisle 4 - Section A"
+      "aisle": "Aisle 4 - Section A",
+      "variable_weight": false
     },
     {
       "product_id": "P019",
@@ -150,7 +168,8 @@
       "price": 125,
       "expected_weight": 200,
       "category": "Dairy",
-      "aisle": "Aisle 3 - Section C (Refrigerated)"
+      "aisle": "Aisle 3 - Section C (Refrigerated)",
+      "variable_weight": false
     },
     {
       "product_id": "P020",
@@ -158,7 +177,188 @@
       "price": 110,
       "expected_weight": 1050,
       "category": "Beverages",
-      "aisle": "Aisle 8 - Section C"
+      "aisle": "Aisle 8 - Section C",
+      "variable_weight": false
+    },
+    {
+      "product_id": "F001",
+      "name": "Apple (Shimla)",
+      "price_per_kg": 180,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F002",
+      "name": "Banana",
+      "price_per_kg": 50,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F003",
+      "name": "Orange (Nagpur)",
+      "price_per_kg": 80,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F004",
+      "name": "Mango (Alphonso)",
+      "price_per_kg": 350,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F005",
+      "name": "Grapes (Green)",
+      "price_per_kg": 120,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F006",
+      "name": "Pomegranate",
+      "price_per_kg": 200,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F007",
+      "name": "Papaya",
+      "price_per_kg": 60,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "F008",
+      "name": "Watermelon",
+      "price_per_kg": 35,
+      "expected_weight": null,
+      "category": "Fruits",
+      "aisle": "Aisle 9 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V001",
+      "name": "Potato",
+      "price_per_kg": 30,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V002",
+      "name": "Onion",
+      "price_per_kg": 40,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V003",
+      "name": "Tomato",
+      "price_per_kg": 45,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V004",
+      "name": "Carrot",
+      "price_per_kg": 50,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V005",
+      "name": "Cauliflower",
+      "price_per_kg": 40,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V006",
+      "name": "Cabbage",
+      "price_per_kg": 30,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V007",
+      "name": "Spinach (Palak)",
+      "price_per_kg": 35,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V008",
+      "name": "Capsicum (Green)",
+      "price_per_kg": 80,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V009",
+      "name": "Brinjal (Baingan)",
+      "price_per_kg": 40,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V010",
+      "name": "Cucumber",
+      "price_per_kg": 35,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V011",
+      "name": "Lady Finger (Bhindi)",
+      "price_per_kg": 60,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
+    },
+    {
+      "product_id": "V012",
+      "name": "Bitter Gourd (Karela)",
+      "price_per_kg": 55,
+      "expected_weight": null,
+      "category": "Vegetables",
+      "aisle": "Aisle 10 - Fresh Produce",
+      "variable_weight": true
     }
   ]
 }

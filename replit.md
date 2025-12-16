@@ -24,13 +24,14 @@ SmartKart is a full-stack web application that serves as a software-only prototy
 ```
 
 ## Key Features
-1. **Product Database**: JSON-based storage with 20 Indian grocery products (prices in ₹)
-2. **Simulated Sensor Inputs**: Product ID (barcode/RFID) and measured weight (load cell)
-3. **Weight Verification**: ±50g tolerance for item validation
-4. **Cart Management**: Add/remove items with real-time total updates
-5. **Budget Control**: Set budget, track spending, 80% warning, exceed alerts
-6. **Product Navigation**: Search, filter by category, view aisle locations
-7. **Billing & Checkout**: Generate digital invoice with simulated payment
+1. **Product Database**: JSON-based storage with 40 products including fruits & vegetables (prices in ₹)
+2. **Variable Weight Items**: Fruits and vegetables are priced per kg with adjustable weights
+3. **Simulated Sensor Inputs**: Product ID (barcode/RFID) and measured weight (load cell)
+4. **Weight Verification**: ±50g tolerance for packaged items, flexible for produce
+5. **Cart Management**: Add/remove items with real-time total updates
+6. **Budget Control**: Set budget, track spending, 80% warning, exceed alerts
+7. **Product Navigation**: Search, filter by category (including Fruits & Vegetables), view aisle locations
+8. **Billing & Checkout**: Generate digital invoice with simulated payment
 
 ## Running the Application
 The app runs on Flask development server at `0.0.0.0:5000`
